@@ -1,0 +1,55 @@
+
+/* layout */
+#page {
+    width: 960px;
+    margin: 0px auto ;    
+    font-size: 12pt;
+    font-family: helvetica;
+}
+
+body {
+    margin: 0px;
+}
+
+a:link, a:active,a:visited {
+    color: black;
+    text-decoration: none;
+}
+
+#header .block {
+    float: left; 
+    display: inline;
+    font-family: impact, helvetica, sans-serif;
+    font-size: 2em;
+}
+
+
+#header {
+    clear: both;
+}
+
+#header .block img { display: none; margin: 0px auto; } 
+#header .block img.shown { display: block; }
+
+#header div.block { background-repeat: repeat-x; }
+
+#header div.block.bw { background-image: url(../img/design/bg_bw.gif); } 
+
+#header div.block.color:nth-child(1) { background-image: url(../img/design/bg_0_col.gif); }
+#header div.block.color:nth-child(2) { background-image: url(../img/design/bg_1_col.gif); }
+#header div.block.color:nth-child(3) { background-image: url(../img/design/bg_2_col.gif); }
+#header div.block.color:nth-child(4) { background-image: url(../img/design/bg_3_col.gif); }
+#header div.block.color:nth-child(5) { background-image: url(../img/design/bg_4_col.gif); }
+#header div.block.color:nth-child(6) { background-image: url(../img/design/bg_5_col.gif); }
+
+
+
+#header .block span {
+    margin: 0px 0.40em;
+    clear:both;
+}
+
+#content {
+    margin-top: 2em;
+}
+

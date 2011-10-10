@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <script type="text/javascript" src="js/modernizr.js"></script>
+    <script type="text/javascript">
+      yepnope([
+      'js/jquery-1.6.2.min.js', 
+      'js/jquery-ui-1.8.14.custom.min.js',
+     'js/jquery.history.js',
+      'js/mustache.js',
+      'js/storage-fixture.js',
+      'js/storage.js',
+      'js/ui.js',
+      'js/menu.js',
+      'js/foodcoop.js']);
+    </script>
+
+    <link rel="stylesheet/less" href="css/bootstrap/bootstrap.less"/>
+    <link rel="stylesheet/less" type="text/css" href="css/design.less"/>
+   <script src="js/less.js"></script>
+
+  </head>
+  <body>
+    <div id="page" class="container">
+	<div id="header">
+	    <div class="block" data-pane="shopping"/>
+		<img src="img/design/shad_0_col.gif" class="shadow-color"/>
+		<img src="img/design/vege_0_col.gif" class="vegetable-color"/>
+		<div><a href="#">ZAKUPY</a></div>
+	    </div>
+	    <div class="block" data-pane="products">
+		<img src="img/design/shad_1_col.gif" class="shadow-color"/>
+		<img src="img/design/vege_1_col.gif" class="vegetable-color"/>
+		<span><a href="#">PRODUKTY</a></span>
+	    </div>
+	    <div class="block" data-pane="suppliers">
+		<img src="img/design/shad_2_col.gif" class="shadow-color"/>
+		<img src="img/design/vege_2_col.gif" class="vegetable-color"/>
+		<span><a href="#">DOSTAWCY</a></span>
+	    </div>
+	    <div class="block" data-pane="profile">
+		<img src="img/design/shad_3_col.gif" class="shadow-color"/>
+		<img src="img/design/vege_3_col.gif" class="vegetable-color"/>
+		<span><a href="#">PROFIL</a></span>
+	    </div>
+	    <div class="block" data-pane="settings">
+		<img src="img/design/shad_4_col.gif" class="shadow-color"/>
+		<img src="img/design/vege_4_col.gif" class="vegetable-color"/>
+		<span><a href="#">OPCJE</a></span>
+	    </div>
+	    <div class="block" data-pane="help">
+		<img src="img/design/shad_5_col.gif" class="shadow-color"/>
+		<img src="img/design/vege_5_col.gif" class="vegetable-color"/>
+		<span><a href="#">POMOC</a></span>
+	    </div>
+	    <br style="clear:both"/>
+	</div>
+
+	<div id="shopping" class="pane" style="display: hidden">
+	  Shopping
+	</div>
+
+	<div id="products" class="pane" style="display: hidden">
+	  <p>
+	    Poniżej znajduje się lista produktów.... 
+	  </p>
+	  <div class="product-list">
+	    <div class="template product">
+	      <div class="row">
+		<div class="span8 offset2">
+		  {{name}}
+		</div>
+		<div class="span2">
+		  {{unit}}
+		</div>
+		<div class="span2">
+		  {{default_min}}
+		</div>
+              </div>
+	    </div>
+	    <div class="template category">
+	      <div class="row">
+		<div class="span16">{{name}}</div>
+	      </div>
+	    </div>
+	  </div>
+
+
+	</div>
+
+	<div id="suppliers" class="pane" style="display: hidden">
+	  Suppliers
+	</div>
+	<div id="profile" class="pane" style="display: hidden">
+	  Profile
+	</div>
+	<div id="settings" class="pane" style="display: hidden">
+	  Settings
+	</div>
+	<div id="help" class="pane" style="display: hidden">
+	  Help
+	</div>
+
+
+
+    </div>
+
+    </body>
+</html>

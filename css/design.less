@@ -1,0 +1,128 @@
+
+/* layout */
+
+// colors
+
+@violet: #4c1636;
+@green1: #d4f079; 
+@green2: #b3bf54;
+@pink: #f26b8f;
+@red: #c8451d;
+@orange: #d9a714;
+
+@font-face {
+    src: url(fonts/CABNDWebBold.otf);
+    font-family: CA BND Web;
+//    font-weight: ;
+}
+
+/* @font-face {
+    src: url("fonts/Titillium Title/TitilliumTitle20.otf");
+    font-family: Titillium;
+}*/
+@font-face {
+    src: url("fonts/Titillium Text/TitilliumText25L.otf");
+    font-family: Titillium;
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    src: url("fonts/Titillium Text/TitilliumText25L005.otf");
+    font-family: Titillium;
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+body {
+    margin: 0px;
+    font-family: Titillium, Century Gothic, sans-serif;
+    font-size: 12pt;
+    line-height: 1.2em;
+    font-weight: normal;
+    color: #101010;
+}
+p {
+    font-size: 1em;
+}
+
+.header-font {
+    font-family: Titillium, Century Gothic, sans-serif; //CA BND Web, impact, helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 1.6em;
+    line-height: 1.1em;
+}
+
+a:link, a:active,a:visited {
+    color: #050505;
+    text-decoration: none;
+}
+
+
+
+
+
+#header {
+    clear: both;
+    
+    div.block { 
+	.header-font;
+	float: left; 
+	display: inline;
+
+	line-height: 1.5em;
+	margin: 0 auto;
+	min-width: 940px / 6;
+	text-align: center;
+
+	background-repeat: repeat-x;
+	&:nth-child(1) { background-image: url(../img/design/bg_0_col.gif); }
+	&:nth-child(2) { background-image: url(../img/design/bg_1_col.gif); }
+	&:nth-child(3) { background-image: url(../img/design/bg_2_col.gif); }
+	&:nth-child(4) { background-image: url(../img/design/bg_3_col.gif); }
+	&:nth-child(5) { background-image: url(../img/design/bg_4_col.gif); }
+	&:nth-child(6) { background-image: url(../img/design/bg_5_col.gif); }
+
+	img { 
+	    margin: 0px auto; 
+	    display: block; 
+	    cursor: pointer;
+	}
+	/* on -- off */
+	img.vegetable-color { display: none; }
+	&.on img.vegetable-color { display: block; }
+	&.on img.shadow-color { display: none; }
+	/* the label */
+	span {
+	    margin: 0px 0.40em;
+	    clear:both;
+	    
+	}
+    }
+}
+
+
+#header .block span {
+}
+
+#content {
+    margin-top: 1.5em;
+}
+
+/* PRODUCT EDITOR */
+.product-editor {
+    .category .row:first-child div { 
+	.header-font;
+	font-weight: bold;
+	padding-bottom: .1em;
+	border-bottom: .2em #909090 solid;
+    }
+
+}
+
+
+/** utilities **/
+.template {
+    display: none;
+}

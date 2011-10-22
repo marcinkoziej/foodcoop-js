@@ -1,4 +1,12 @@
 
+$.fn.formdata = ->
+  fds = {}
+  @each ->
+    $.map  $(this).serializeArray(), (fv) ->
+      fds[fv.name] = fv.value
+  fds
+
+
 UIElement =
   options:
     templates: {}
@@ -15,6 +23,8 @@ UIElement =
       tbody = @options.templates[template]
     Mustache.to_html(tbody, view, partials)
 
+  empty: ->
+    @element.children(":not(.template)").remove()
 
 $.widget("foodcoop.UIElement", UIElement)
 
@@ -38,6 +48,24 @@ ProductEditor =
     for c in cats
       @drawCategory c
 
+  add_category: ->
+    dbody = $(@render('category-edit', {}))
+    add = (ev) =>
+      cat = dbody.find("form").formdata()
+      ctitle = @render('category', cat)
+      @element.append(ctitle)
+      dbody.modal "hide"
+      dbody.remove()
+
+    cancel = (ev) =>
+      dbody.modal 'hide'
+      dbody.remove()
+
+    dbody.find(':button.primary').click add
+    dbody.find(':button.cancel').click cancel
+
+    dbody.modal
+      show: true
 
 
 $.widget("foodcoop.ProductEditor", $.foodcoop.UIElement,  ProductEditor)

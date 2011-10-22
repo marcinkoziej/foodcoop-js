@@ -5,5 +5,7 @@ window.foodstore = new LocalFoodStore
 
 
 # setup widgets.
-$(".product-list").ProductEditor(store: window.foodstore)
+product_editor = $(".product-list").ProductEditor(store: window.foodstore)
+$("#product-list-add-category").click (ev) ->
+  product_editor.ProductEditor("add_category")
 

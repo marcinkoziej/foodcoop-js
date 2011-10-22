@@ -1,5 +1,5 @@
 (function() {
-  var $, History, activate_pane, currentState, m, pane, s, topmenu_select;
+  var $, History, activate_pane, currentState, m, pane, paneexpr, topmenu_select;
   var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
   $ = jQuery;
   History = window.History;
@@ -36,14 +36,15 @@
     return activate_pane(pane);
   });
   $("#header").topmenu();
+  paneexpr = /^[/][?](\w+)/;
   currentState = History.getState();
   console.log(currentState);
   if (currentState.data.pane != null) {
     pane = currentState.data.pane;
-    activate_pane(pane);
-  } else if (currentState.hash != null) {
-    s = /^[/][?](\w+)/;
-    m = s.exec(currentState.hash);
+    History.replaceState({
+      pane: pane
+    }, "", "?" + pane);
+  } else if ((currentState.hash != null) && (m = paneexpr.exec(currentState.hash))) {
     pane = m[1];
     History.replaceState({
       pane: pane

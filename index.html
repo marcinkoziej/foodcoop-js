@@ -1,3 +1,4 @@
+<!-- -*- nxhtml -*- -->
 <!DOCTYPE html>
 <html>
   <head>
@@ -7,7 +8,10 @@
       yepnope([
       'js/jquery-1.6.2.min.js', 
       'js/jquery-ui-1.8.14.custom.min.js',
-     'js/jquery.history.js',
+      'js/jquery.history.js',
+      
+      'js/bootstrap-modal.js',
+      
       'js/mustache.js',
       'js/storage-fixture.js',
       'js/storage.js',
@@ -15,11 +19,13 @@
       'js/menu.js',
       'js/foodcoop.js']);
     </script>
-
+    
     <link rel="stylesheet/less" href="css/bootstrap/bootstrap.less"/>
     <link rel="stylesheet/less" type="text/css" href="css/design.less"/>
-   <script src="js/less.js"></script>
+    <!-- <link rel="stylesheet" href="css/ui-lightness/jquery-ui-1.8.16.custom.css"/> -->
+    <script src="js/less.js" type="text/javascript"></script>
 
+   <title></title> 
   </head>
   <body>
     <div id="page" class="container">
@@ -65,8 +71,10 @@
 	  <p>
 	    Poniżej znajduje się lista produktów.... 
 	  </p>
+	  <p><input type="button" id="product-list-add-category"	
+		    class="primary btn" value="Dodaj kategorię"></button></p>
 	  <div class="product-list">
-	    <div class="template product">
+	    <div class="template product" data-id="{{id}}">
 	      <div class="row">
 		<div class="span8 offset2">
 		  {{name}}
@@ -80,8 +88,42 @@
               </div>
 	    </div>
 	    <div class="template category">
-	      <div class="row">
+	      <div class="row" data-id="{{id}}">
 		<div class="span16">{{name}}</div>
+	      </div>
+	    </div>
+	    <div class="template product-edit">
+	      <form action="/products/{{id}}" method="post">
+		<div class="span8 offset2">
+		  <input type="text" name="name" value="{{name}}" />
+		</div>
+		<div class="span2">
+		  <select name="unit">
+		    <option value="kg" {{#unit.kg}}selected{{/unit.kg}}>kg</option>
+		    <option value="pack" {{#unit.pack}}selected{{/unit.pack}}>paczka</option>
+		  </select>
+		</div>
+		<div class="span2">
+		  <input type="text" name="default_min" value="{{default_min}" />
+		</div>
+	      </form>
+	    </div>
+	    <div class="template category-edit">
+	      <div class="modal">
+		<div class="modal-header">Kategoria</div>
+		<div class="modal-body">
+		  <form action="/categories/{{id}}" method="post">
+		    <p>
+		      <input type="hidden" name="id" value="{{id}}"/>
+		      Nazwa kategorii: <input type="text" name="name" placeholder="kategoria" value=""/>
+		    </p>
+		  </form>
+		</div>
+		<div class="modal-footer">
+		  <input type="button" class="btn primary" value="ok"/>
+		  <input type="button" class="btn cancel" value="zrezygnuj"/>
+		</div>
+
 	      </div>
 	    </div>
 	  </div>

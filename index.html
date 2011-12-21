@@ -74,8 +74,9 @@
 	  <p><input type="button" id="product-list-add-category"	
 		    class="primary btn" value="Dodaj kategorię"></button></p>
 	  <div class="product-list">
-	    <div class="template product" data-id="{{id}}">
-	      <div class="row">
+	    <!-- list edit templates -->
+	    <div class="template product">
+	      <div class="row product" data-id="{{id}}">
 		<div class="span8 offset2">
 		  {{name}}
 		</div>
@@ -85,6 +86,9 @@
 		<div class="span2">
 		  {{default_min}}
 		</div>
+		<div class="span2">
+		  <a href="#" class="edit-row">edit</a>
+		</div>
               </div>
 	    </div>
 	    <div class="template category">
@@ -93,20 +97,25 @@
 	      </div>
 	    </div>
 	    <div class="template product-edit">
-	      <form action="/products/{{id}}" method="post">
-		<div class="span8 offset2">
-		  <input type="text" name="name" value="{{name}}" />
-		</div>
-		<div class="span2">
-		  <select name="unit">
-		    <option value="kg" {{#unit.kg}}selected{{/unit.kg}}>kg</option>
-		    <option value="pack" {{#unit.pack}}selected{{/unit.pack}}>paczka</option>
-		  </select>
-		</div>
-		<div class="span2">
-		  <input type="text" name="default_min" value="{{default_min}" />
-		</div>
-	      </form>
+	      <div class="row">
+		<form action="/products/{{id}}" method="post">
+		  <div class="span8 offset2">
+		    <input type="hidden" name="id" value="{{id}}"/>
+		    <input type="text" name="name" value="{{name}}" />
+		  </div>
+		  <div class="span2">
+		    {{#select_default}}
+		    <select name="unit" default-data="{{unit}}">
+		      <option value="kg">kg</option>
+		      <option value="pack">paczka</option>
+		    </select>
+		    {{/select_default}}
+		  </div>
+		  <div class="span2">
+		    <input type="text" name="default_min" value="{{default_min}}" />
+		  </div>
+		</form>
+	      </div>
 	    </div>
 	    <div class="template category-edit">
 	      <div class="modal">

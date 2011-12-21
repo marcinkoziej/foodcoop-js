@@ -13,6 +13,9 @@
     IFoodStore.prototype.getAllCategories = function() {
       return window.fixture.getAllCategories;
     };
+    IFoodStore.prototype.getProduct = function(id) {
+      return window.fixture.products[id];
+    };
     return IFoodStore;
   })();
   LocalFoodStore = (function() {

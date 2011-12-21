@@ -44,6 +44,7 @@
     History.replaceState({
       pane: pane
     }, "", "?" + pane);
+    activate_pane(pane);
   } else if ((currentState.hash != null) && (m = paneexpr.exec(currentState.hash))) {
     pane = m[1];
     History.replaceState({

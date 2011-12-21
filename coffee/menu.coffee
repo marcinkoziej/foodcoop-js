@@ -41,18 +41,20 @@ History.Adapter.bind window, 'statechange', (ev) ->
 $("#header").topmenu()
 
 # & run initial state
+paneexpr = /^[/][?](\w+)/
 currentState = History.getState()
 console.log(currentState)
 if currentState.data.pane?
   pane = currentState.data.pane
+  History.replaceState({pane: pane}, "", "?" + pane)
+  # this happens on page reload. remember, we will not get a statechange event
   activate_pane pane
-else if currentState.hash?
-  # we need to figure out where we are!
-  s = /^[/][?](\w+)/
-  m = s.exec(currentState.hash)
+# we don't have any history data, we're have to parse the url.
+else if currentState.hash? and m = paneexpr.exec(currentState.hash)
   pane = m[1]
   History.replaceState({pane: pane}, "", "?" + pane)
 else
+# default.
   History.replaceState({pane: "products"}, "Products", "?products")
 
 

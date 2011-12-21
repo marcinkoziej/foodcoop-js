@@ -5,6 +5,6 @@
     store: window.foodstore
   });
   $("#product-list-add-category").click(function(ev) {
-    return product_editor.ProductEditor("add_category");
+    return product_editor.ProductEditor("addCategory");
   });
 }).call(this);
